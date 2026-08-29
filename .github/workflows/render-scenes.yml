@@ -1,0 +1,57 @@
+name: Render scenes
+
+# Runs whenever a scene or the drawing code changes, and can be started by hand.
+on:
+  push:
+    paths:
+      - "scenes/**"
+      - "drawlib/**"
+      - "render.py"
+      - "requirements.txt"
+      - ".github/workflows/render-scenes.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: render-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      # cairosvg needs the cairo shared library to write PNGs
+      - name: Install cairo
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends libcairo2
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Render every scene
+        run: python render.py --all
+
+      - name: Commit the renders
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add renders
+          # Nothing changed means nothing to push, so the run that this commit
+          # triggers finds no diff and stops here — no loop.
+          if git diff --cached --quiet; then
+            echo "renders are already up to date"
+          else
+            git commit -m "Update renders [skip ci]"
+            git push
+          fi
