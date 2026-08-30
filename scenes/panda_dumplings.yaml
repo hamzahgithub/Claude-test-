@@ -1,0 +1,311 @@
+canvas:
+  width: 1200
+  height: 1600
+  background: '#ffffff'
+  border:
+    margin: 34
+    stroke_width: 6
+    color: '#111111'
+defaults:
+  stroke: '#111111'
+  stroke_width: 7
+palette:
+  charcoal: '#3A3A3A'
+  bamboo: '#6FA96B'
+  dough: '#FBEFD8'
+  warmbamboo: '#C79A5B'
+  red: '#D9564E'
+  white: '#FFFFFF'
+layers:
+- element: line
+  at:
+  - 0
+  - 0
+  params:
+    points:
+    - - -620
+      - 0
+    - - 620
+      - 0
+    stroke: '#111111'
+    stroke_width: 6
+- element: stand
+  at:
+  - 0
+  - 0
+  params:
+    width: 700
+    height: 260
+    top_height: 40
+    fill: $warmbamboo
+    top_fill: '#A87D45'
+- element: group
+  at:
+  - 420
+  - 0
+  params:
+    children:
+    - element: rect
+      at:
+      - 0
+      - -30
+      params:
+        width: 170
+        height: 60
+        radius: 14
+        fill: $warmbamboo
+    - element: rect
+      at:
+      - 0
+      - -96
+      params:
+        width: 170
+        height: 60
+        radius: 14
+        fill: $warmbamboo
+    - element: ellipse
+      at:
+      - 0
+      - -126
+      params:
+        width: 180
+        height: 26
+        fill: '#8A6A3B'
+- element: steam
+  at:
+  - 400
+  - -400
+  params:
+    height: 140
+    width: 40
+- element: steam
+  at:
+  - 440
+  - -410
+  params:
+    height: 120
+    width: 32
+- element: vessel
+  at:
+  - -460
+  - 0
+  params:
+    width: 90
+    height: 110
+    taper: 0.6
+    fill: $bamboo
+- element: line
+  at:
+  - -478
+  - -110
+  params:
+    points:
+    - - 0
+      - 0
+    - - -14
+      - -160
+    stroke_width: 10
+    stroke: $bamboo
+- element: line
+  at:
+  - -450
+  - -110
+  params:
+    points:
+    - - 0
+      - 0
+    - - 8
+      - -170
+    stroke_width: 10
+    stroke: $bamboo
+- element: blob
+  at:
+  - -490
+  - -260
+  params:
+    points:
+    - - -18
+      - 8
+    - - -8
+      - -26
+    - - 14
+      - -10
+    - - 6
+      - 16
+    tension: 0.85
+    fill: $bamboo
+- element: rect
+  at:
+  - -200
+  - -30
+  params:
+    width: 170
+    height: 40
+    radius: 20
+    fill: $warmbamboo
+    rotate: -8
+- element: bowl
+  at:
+  - -40
+  - 0
+  params:
+    width: 130
+    height: 60
+    fill: $dough
+- element: ellipse
+  at:
+  - 140
+  - -20
+  params:
+    width: 54
+    height: 36
+    fill: $dough
+- element: ellipse
+  at:
+  - 210
+  - -20
+  params:
+    width: 54
+    height: 36
+    fill: $dough
+- element: ellipse
+  at:
+  - 280
+  - -20
+  params:
+    width: 54
+    height: 36
+    fill: $dough
+- element: creature
+  at:
+  - -40
+  - -280
+  params:
+    fur: $dough
+    light: $white
+    body:
+      width: 400
+      height: 360
+    belly:
+      width: 210
+      height: 230
+      dy: 36
+      fill: $white
+    head:
+      width: 390
+      height: 350
+      overlap: 0.87
+    ears:
+      shape: round
+      width: 140
+      height: 140
+      spread: 170
+      tilt: 6
+      inner_scale: 0.001
+      fill: $charcoal
+      inner_fill: $charcoal
+    cheeks:
+      width: 80
+      height: 44
+      spread: 150
+      dy: 24
+      fill: '#F7B0BE'
+    eyes:
+      r: 28
+      spread: 88
+      dy: -8
+    nose:
+      width: 26
+      height: 20
+      dy: 94
+    feet:
+      width: 130
+      height: 80
+      spread: 95
+      dy: -24
+      fill: $charcoal
+    arms:
+      width: 110
+      height: 90
+      spread: 170
+      dy: -24
+      fill: $charcoal
+    tail: null
+- element: ellipse
+  at:
+  - -40
+  - -600
+  params:
+    width: 90
+    height: 110
+    fill: $charcoal
+- element: ellipse
+  at:
+  - 110
+  - -600
+  params:
+    width: 90
+    height: 110
+    fill: $charcoal
+- element: circle
+  at:
+  - -40
+  - -545
+  params:
+    r: 30
+    fill: $charcoal
+- element: circle
+  at:
+  - 110
+  - -545
+  params:
+    r: 30
+    fill: $charcoal
+- element: rect
+  at:
+  - -40
+  - -170
+  params:
+    width: 210
+    height: 190
+    radius: 24
+    fill: $red
+- element: heart
+  at:
+  - -540
+  - -560
+  params:
+    size: 36
+    fill: $red
+- element: heart
+  at:
+  - 560
+  - -700
+  params:
+    size: 30
+    fill: $red
+- element: heart
+  at:
+  - -480
+  - -720
+  params:
+    size: 26
+    fill: $red
+- element: heart
+  at:
+  - 600
+  - -520
+  params:
+    size: 24
+    fill: $red
+panels:
+- mode: color
+  at:
+  - 600.0
+  - 390
+  scale: 0.26
+- mode: line
+  at:
+  - 600.0
+  - 1470
+  scale: 0.85

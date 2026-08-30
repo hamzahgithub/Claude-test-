@@ -1,0 +1,113 @@
+# حديقة ليلية: بيت وشجرتان وقطة تحت هلال — الوصف في descriptions/night_garden.md
+# نفس الكود الذي رسم الثعلب: تتغيّر المعاملات فقط.
+canvas:
+  width: 1400
+  height: 900
+  background: "$sky"
+
+mode: color
+
+defaults:
+  stroke: "#12203A"
+  stroke_width: 6
+
+palette:
+  sky:    {gradient: [[0, "#16224A"], [0.65, "#39508F"], [1, "#7C8FC4"]], angle: 90}
+  grass:  "#2F7A44"
+  moon:   "#FBE79A"
+  star:   "#FBCF4B"
+  wall:   "#F2E3C8"
+  roof:   "#C0533F"
+  door:   "#7A4A25"
+  window: "#FBCF4B"
+  trunk:  "#6B4526"
+  crown:  "#2E6B3E"
+  pine:   "#255A38"
+  cloud:  "#94A7D8"
+  cat:    "#8E93A8"
+  cat_lt: "#E8E4EF"
+
+layers:
+  # --- نجوم منثورة ببذرة ثابتة: نفس التوزيع في كل تشغيل ---
+  - element: repeat
+    params:
+      count: 26
+      scatter: {box: [60, 60, 1280, 420], seed: 7, scale_jitter: 0.45}
+      child:
+        element: star
+        params: {r: 15, fill: "$star", stroke_width: 3}
+
+  - element: celestial
+    at: [1180, 190]
+    params: {r: 105, phase: crescent, fill: "$moon"}
+
+  - element: cloud
+    at: [320, 235]
+    params: {width: 430, height: 92, puffs: 4, fill: "$cloud"}
+  - element: cloud
+    at: [880, 145]
+    params: {width: 300, height: 74, puffs: 3, fill: "$cloud"}
+
+  # --- الأرض ---
+  - element: ellipse
+    at: [700, 1010]
+    params: {width: 2000, height: 480, fill: "$grass"}
+
+  # --- البيت والأشجار ---
+  - element: house
+    at: [370, 790]
+    params:
+      width: 460
+      height: 330
+      roof_height: 200
+      windows: 2
+      wall_fill: "$wall"
+      roof_fill: "$roof"
+      door_fill: "$door"
+      window_fill: "$window"
+  - element: tree
+    at: [1010, 800]
+    params:
+      style: pine
+      height: 300
+      trunk_width: 60
+      crown_width: 360
+      crown_height: 470
+      trunk_fill: "$trunk"
+      crown_fill: "$pine"
+  - element: tree
+    at: [1265, 810]
+    params:
+      style: round
+      height: 250
+      trunk_width: 62
+      crown_width: 330
+      crown_height: 330
+      trunk_fill: "$trunk"
+      crown_fill: "$crown"
+
+  # --- قطة: نفس عنصر creature، أذنان مستديرتان وذيل رفيع ---
+  - element: creature
+    at: [690, 815]
+    scale: 0.62
+    params:
+      fur: "$cat"
+      light: "$cat_lt"
+      body:   {width: 380, height: 340}
+      belly:  {width: 200, height: 220, dy: 34}
+      head:   {width: 400, height: 350, overlap: 0.9}
+      ears:   {shape: pointed, width: 130, height: 150, spread: 118, tilt: 24, inner_scale: 0.5}
+      muzzle: {width: 215, height: 165, dy: 52}
+      cheeks: {width: 84, height: 44, spread: 152, dy: 26, fill: "$cat_lt"}
+      eyes:   {r: 27, spread: 92, dy: -8}
+      nose:   {width: 42, height: 32, dy: 38}
+      feet:   {width: 130, height: 86, spread: 92, dy: -28, fill: "$cat"}
+      tail:
+        shape: thin
+        length: 340
+        width: 150
+        angle: 25
+        side: right
+        dy: -40
+        curl: 0.85
+        tip_at: 0.7

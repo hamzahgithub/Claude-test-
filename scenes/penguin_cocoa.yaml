@@ -1,0 +1,304 @@
+canvas:
+  width: 1200
+  height: 1600
+  background: '#ffffff'
+  border:
+    margin: 34
+    stroke_width: 6
+    color: '#111111'
+defaults:
+  stroke: '#111111'
+  stroke_width: 7
+palette:
+  blue: '#2B4C7E'
+  cocoa: '#8A5A3B'
+  cream: '#FFF1DC'
+  red: '#D64545'
+  ice: '#BFE0F2'
+  snow: '#FFFFFF'
+layers:
+- element: line
+  at:
+  - 0
+  - 0
+  params:
+    points:
+    - - -620
+      - 0
+    - - 620
+      - 0
+    stroke: '#111111'
+    stroke_width: 6
+- element: ellipse
+  at:
+  - -480
+  - 0
+  params:
+    width: 220
+    height: 70
+    fill: $snow
+- element: ellipse
+  at:
+  - 470
+  - 0
+  params:
+    width: 200
+    height: 64
+    fill: $snow
+- element: tree
+  at:
+  - -580
+  - 0
+  params:
+    style: pine
+    height: 210
+    trunk_width: 34
+    crown_width: 200
+    crown_height: 260
+    trunk_fill: $cocoa
+    crown_fill: '#3E7A52'
+- element: awning
+  at:
+  - 0
+  - -520
+  params:
+    width: 520
+    height: 90
+    droop: 34
+    stripes: 6
+    fills:
+    - $red
+    - $cream
+- element: stand
+  at:
+  - 0
+  - -60
+  params:
+    width: 560
+    height: 300
+    top_height: 44
+    fill: $cocoa
+    top_fill: '#6B4224'
+- element: group
+  at:
+  - -330
+  - -300
+  params:
+    children:
+    - element: mug
+      at:
+      - 0
+      - 0
+      params:
+        width: 90
+        height: 80
+        fill: $red
+        motif: dot
+        motif_fill: $cream
+    - element: mug
+      at:
+      - -6
+      - -70
+      params:
+        width: 88
+        height: 76
+        fill: $ice
+        motif: dot
+        motif_fill: $cream
+    - element: mug
+      at:
+      - 6
+      - -138
+      params:
+        width: 86
+        height: 74
+        fill: $red
+        motif: dot
+        motif_fill: $cream
+- element: vessel
+  at:
+  - 280
+  - -300
+  params:
+    width: 70
+    height: 60
+    taper: 0.8
+    fill: $cocoa
+- element: creature
+  at:
+  - 0
+  - -300
+  params:
+    fur: $blue
+    light: $cream
+    body:
+      width: 430
+      height: 400
+    belly:
+      width: 220
+      height: 270
+      dy: 44
+      fill: $cream
+    head:
+      width: 400
+      height: 360
+      overlap: 0.9
+    ears: null
+    muzzle:
+      width: 230
+      height: 190
+      dy: 54
+      fill: $cream
+    cheeks:
+      width: 70
+      height: 40
+      spread: 150
+      dy: 30
+      fill: '#F7B0BE'
+    eyes:
+      r: 28
+      spread: 88
+      dy: -14
+    nose: null
+    mouth: null
+    feet:
+      width: 130
+      height: 60
+      spread: 110
+      dy: -16
+      fill: $red
+    tail:
+      shape: thin
+      length: 90
+      width: 90
+      angle: 250
+      side: left
+      dy: 0
+      curl: 0.2
+      tip_at: 0.6
+      fill: $blue
+    arms:
+      width: 110
+      height: 230
+      spread: 225
+      dy: -70
+      fill: $blue
+- element: polygon
+  at:
+  - 0
+  - -300
+  params:
+    points:
+    - - -26
+      - -400
+    - - 26
+      - -400
+    - - 0
+      - -350
+    fill: '#F5C542'
+- element: group
+  at:
+  - 0
+  - -300
+  params:
+    children:
+    - element: rect
+      at:
+      - 0
+      - -330
+      params:
+        width: 280
+        height: 58
+        radius: 20
+        fill: $red
+    - element: rect
+      at:
+      - -90
+      - -270
+      params:
+        width: 48
+        height: 120
+        radius: 16
+        fill: $red
+        rotate: 8
+- element: mug
+  at:
+  - 0
+  - -430
+  params:
+    width: 100
+    height: 95
+    fill: $cream
+    motif: dot
+    motif_fill: $red
+- element: steam
+  at:
+  - -10
+  - -520
+  params:
+    height: 140
+    width: 44
+    fill: '#ffffff'
+- element: steam
+  at:
+  - 40
+  - -515
+  params:
+    height: 120
+    width: 36
+    fill: '#ffffff'
+- element: steam
+  at:
+  - 10
+  - -540
+  params:
+    height: 100
+    width: 30
+    fill: '#ffffff'
+- element: star
+  at:
+  - -500
+  - -680
+  params:
+    r: 26
+    tips: 6
+    inner: 0.35
+    fill: $ice
+- element: star
+  at:
+  - -420
+  - -560
+  params:
+    r: 20
+    tips: 6
+    inner: 0.35
+    fill: $ice
+- element: star
+  at:
+  - 520
+  - -640
+  params:
+    r: 24
+    tips: 6
+    inner: 0.35
+    fill: $ice
+- element: star
+  at:
+  - 460
+  - -500
+  params:
+    r: 18
+    tips: 6
+    inner: 0.35
+    fill: $ice
+panels:
+- mode: color
+  at:
+  - 600.0
+  - 390
+  scale: 0.27
+- mode: line
+  at:
+  - 600.0
+  - 1480
+  scale: 0.82

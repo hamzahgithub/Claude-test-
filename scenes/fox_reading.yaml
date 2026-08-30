@@ -1,0 +1,106 @@
+# ثعلب صغير يقرأ كتاباً على وسادة — الوصف الأصلي في descriptions/fox_reading.md
+canvas:
+  width: 1400
+  height: 1250
+  background: "#ffffff"
+
+mode: both          # ينتج نسخة ملوّنة ونسخة خطوط للتلوين
+
+defaults:
+  stroke: "#111111"
+  stroke_width: 7
+
+palette:
+  fur:     "#F4802B"
+  light:   "#FFF1E0"
+  cushion: "#E1362F"
+  wood:    "#8A5A2B"
+  gold:    "#FBCF4B"
+  leaf:    "#3FA34D"
+  clay:    "#C87941"
+  blue:    "#2E7BC4"
+
+layers:
+  # --- النجوم في الخلفية ---
+  - element: star
+    at: [170, 520]
+    params: {r: 46, fill: "$gold"}
+  - element: star
+    at: [270, 350]
+    params: {r: 38, fill: "$gold"}
+  - element: star
+    at: [385, 205]
+    params: {r: 48, fill: "$gold"}
+  - element: star
+    at: [900, 150]
+    params: {r: 44, fill: "$gold"}
+  - element: star
+    at: [1210, 470]
+    params: {r: 40, fill: "$gold"}
+
+  # --- المصباح والنبتة ---
+  - element: lamp
+    at: [1055, 1030]
+    params:
+      height: 660
+      shade_width: 280
+      shade_height: 175
+      shade_fill: "$gold"
+      pole_fill: "$wood"
+  - element: plant
+    at: [1205, 1090]
+    params:
+      pot_width: 160
+      pot_height: 135
+      leaf_length: 225
+      leaf_width: 88
+      spread: 44
+      pot_fill: "$clay"
+      leaf_fill: "$leaf"
+
+  # --- الوسادة ---
+  - element: cushion
+    at: [620, 1040]
+    params: {width: 900, height: 260, fill: "$cushion"}
+
+  # --- الثعلب ---
+  - element: creature
+    at: [610, 1030]
+    scale: 0.82
+    params:
+      fur: "$fur"
+      light: "$light"
+      body:   {width: 430, height: 380}
+      belly:  {width: 230, height: 250, dy: 40}
+      head:   {width: 470, height: 400, overlap: 0.88}
+      ears:   {shape: pointed, width: 150, height: 235, spread: 140, tilt: 20}
+      tuft:   {width: 150, height: 65}
+      muzzle: {width: 260, height: 205, dy: 62}
+      cheeks: {width: 100, height: 54, spread: 182, dy: 30}
+      eyes:   {r: 31, spread: 108, dy: -10}
+      nose:   {width: 50, height: 38, dy: 46}
+      feet:   {width: 150, height: 100, spread: 105, dy: -34}
+      arms:   {width: 140, height: 108, spread: 196, dy: -46}
+      tail:
+        shape: bushy
+        length: 330
+        width: 230
+        angle: 172
+        dy: -70
+        curl: 0.62
+        tip_at: 0.6
+
+  # --- الكتاب في يديه ---
+  - element: book
+    at: [645, 930]
+    params:
+      width: 370
+      height: 155
+      lift: 100
+      cover_fill: "$wood"
+      picture_fill: "$leaf"
+
+  # --- الكوب أمام الوسادة ---
+  - element: mug
+    at: [285, 1125]
+    params: {width: 135, height: 130, fill: "$blue", motif: star}

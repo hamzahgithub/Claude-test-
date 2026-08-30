@@ -1,0 +1,270 @@
+canvas:
+  width: 1200
+  height: 1600
+  background: '#ffffff'
+defaults:
+  stroke: '#111111'
+  stroke_width: 7
+palette:
+  indigo: '#35406E'
+  gold: '#F5C542'
+  green: '#4C8F5B'
+  bark: '#7A5537'
+  sand: '#EFDCC0'
+  spike: '#5C4A3A'
+layers:
+- element: line
+  at:
+  - 0
+  - 0
+  params:
+    points:
+    - - -620
+      - 0
+    - - 620
+      - 0
+    stroke: '#111111'
+    stroke_width: 6
+- element: star
+  at:
+  - -540
+  - -600
+  params:
+    r: 30
+    fill: $gold
+- element: star
+  at:
+  - -460
+  - -420
+  params:
+    r: 22
+    fill: $gold
+- element: star
+  at:
+  - 520
+  - -680
+  params:
+    r: 26
+    fill: $gold
+- element: star
+  at:
+  - 420
+  - -500
+  params:
+    r: 20
+    fill: $gold
+- element: celestial
+  at:
+  - 560
+  - -300
+  params:
+    r: 70
+    phase: crescent
+    fill: $gold
+- element: tent
+  at:
+  - -260
+  - 0
+  params:
+    width: 420
+    height: 380
+    fill: $sand
+    door_fill: $bark
+    stripe_fill: $indigo
+- element: group
+  at:
+  - -450
+  - 0
+  params:
+    children:
+    - element: ellipse
+      at:
+      - 0
+      - -30
+      params:
+        width: 60
+        height: 60
+        fill: $green
+    - element: ellipse
+      at:
+      - 0
+      - -30
+      params:
+        width: 30
+        height: 30
+        fill: $sand
+- element: backpack
+  at:
+  - 500
+  - 0
+  params:
+    width: 170
+    height: 210
+    fill: $green
+    flap_fill: '#3E7048'
+    pocket_fill: '#3E7048'
+- element: mushroom
+  at:
+  - 420
+  - 0
+  params:
+    cap_r: 48
+    stem_height: 60
+    cap_fill: '#C0533F'
+    stem_fill: $sand
+- element: campfire
+  at:
+  - 80
+  - 0
+  params:
+    width: 230
+    flame_height: 180
+    stone_fill: '#8B8B8B'
+    flame_fill: '#E2892F'
+    flame_inner: $gold
+- element: vessel
+  at:
+  - 220
+  - -10
+  params:
+    width: 90
+    height: 90
+    taper: 0.85
+    fill: '#5B5B5B'
+    handle:
+      side: left
+      size: 0.3
+    spout:
+      side: right
+      angle: 40
+      length: 70
+- element: creature
+  at:
+  - -40
+  - 0
+  params:
+    fur: $bark
+    light: $sand
+    body:
+      width: 360
+      height: 260
+    belly:
+      width: 190
+      height: 150
+      dy: 20
+      fill: $sand
+    head:
+      width: 330
+      height: 300
+      overlap: 0.86
+    ears:
+      shape: round
+      width: 70
+      height: 70
+      spread: 130
+      tilt: 6
+      inner_scale: 0.5
+    muzzle:
+      width: 190
+      height: 150
+      dy: 48
+    cheeks:
+      width: 64
+      height: 36
+      spread: 124
+      dy: 20
+    eyes:
+      r: 24
+      spread: 72
+      dy: -4
+    nose:
+      width: 24
+      height: 18
+      dy: 82
+    feet:
+      width: 110
+      height: 60
+      spread: 90
+      dy: -10
+    arms:
+      width: 90
+      height: 76
+      spread: 150
+      dy: 6
+    tail: null
+- element: polygon
+  at:
+  - -40
+  - -420
+  params:
+    points:
+    - - -150
+      - 40
+    - - -130
+      - -30
+    - - -95
+      - 30
+    - - -72
+      - -40
+    - - -38
+      - 30
+    - - -10
+      - -45
+    - - 22
+      - 30
+    - - 55
+      - -38
+    - - 88
+      - 28
+    - - 118
+      - -32
+    - - 150
+      - 40
+    fill: $spike
+- element: group
+  at:
+  - 140
+  - -250
+  params:
+    children:
+    - element: rect
+      at:
+      - 0
+      - 0
+      params:
+        width: 70
+        height: 90
+        radius: 10
+        fill: $bark
+    - element: circle
+      at:
+      - 0
+      - -6
+      params:
+        r: 26
+        fill: $gold
+    - element: line
+      at:
+      - 0
+      - -45
+      params:
+        points:
+        - - -24
+          - 0
+        - - 0
+          - -26
+        - - 24
+          - 0
+        close: false
+        stroke_width: 6
+panels:
+- mode: color
+  at:
+  - 950
+  - 380
+  scale: 0.27
+- mode: line
+  at:
+  - 600.0
+  - 1480
+  scale: 0.88

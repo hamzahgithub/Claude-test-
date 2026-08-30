@@ -1,0 +1,264 @@
+canvas:
+  width: 1200
+  height: 1600
+  background: '#ffffff'
+defaults:
+  stroke: '#111111'
+  stroke_width: 7
+palette:
+  lemon: '#F7D34E'
+  green: '#6CBE5B'
+  tan: '#C99A63'
+  sky: '#86C5E5'
+  cherry: '#DC5B4C'
+  cream: '#FFF6E0'
+layers:
+- element: line
+  at:
+  - 0
+  - 0
+  params:
+    points:
+    - - -620
+      - 0
+    - - 620
+      - 0
+    stroke: '#111111'
+    stroke_width: 6
+- element: stand
+  at:
+  - 0
+  - 0
+  params:
+    width: 760
+    height: 340
+    top_height: 50
+    fill: $tan
+    top_fill: '#B07E48'
+- element: bowl
+  at:
+  - -470
+  - 0
+  params:
+    width: 140
+    height: 70
+    fill: $cream
+- element: citrus_slice
+  at:
+  - -500
+  - -60
+  params:
+    r: 34
+- element: citrus_slice
+  at:
+  - -450
+  - -50
+  params:
+    r: 30
+- element: citrus_slice
+  at:
+  - -490
+  - -100
+  params:
+    r: 26
+- element: group
+  at:
+  - 420
+  - 0
+  params:
+    children:
+    - element: rect
+      at:
+      - 0
+      - -20
+      params:
+        width: 150
+        height: 40
+        radius: 10
+        fill: '#ffffff'
+    - element: rect
+      at:
+      - 0
+      - -20
+      params:
+        width: 150
+        height: 14
+        radius: 6
+        fill: $sky
+- element: circle
+  at:
+  - 530
+  - 46
+  params:
+    r: 38
+    fill: $cherry
+- element: rect
+  at:
+  - -120
+  - -420
+  params:
+    width: 64
+    height: 170
+    radius: 16
+    fill: $sky
+- element: rect
+  at:
+  - 90
+  - -420
+  params:
+    width: 64
+    height: 170
+    radius: 16
+    fill: $sky
+- element: citrus_slice
+  at:
+  - -120
+  - -470
+  params:
+    r: 28
+- element: citrus_slice
+  at:
+  - 90
+  - -480
+  params:
+    r: 24
+- element: vessel
+  at:
+  - -10
+  - -470
+  params:
+    width: 180
+    height: 230
+    taper: 0.82
+    fill: $lemon
+    handle:
+      side: right
+      size: 0.28
+- element: citrus_slice
+  at:
+  - 30
+  - -560
+  params:
+    r: 30
+- element: citrus_slice
+  at:
+  - -40
+  - -600
+  params:
+    r: 24
+- element: creature
+  at:
+  - -40
+  - -340
+  params:
+    fur: $tan
+    light: $cream
+    body:
+      width: 380
+      height: 340
+    belly:
+      width: 190
+      height: 200
+      dy: 30
+      fill: $cream
+    head:
+      width: 360
+      height: 320
+      overlap: 0.88
+    ears:
+      shape: pointed
+      width: 110
+      height: 190
+      spread: 150
+      tilt: 32
+      inner_scale: 0.55
+    muzzle:
+      width: 210
+      height: 170
+      dy: 50
+    cheeks:
+      width: 64
+      height: 36
+      spread: 140
+      dy: 22
+    eyes:
+      r: 26
+      spread: 80
+      dy: -6
+    nose:
+      width: 28
+      height: 20
+      dy: 88
+    feet: null
+    arms:
+      width: 100
+      height: 80
+      spread: 170
+      dy: -10
+    tail:
+      shape: round
+      length: 150
+      width: 90
+      angle: 250
+      side: left
+      dy: 40
+      curl: 0.5
+      tip_at: 0.5
+- element: ellipse
+  at:
+  - -30
+  - -230
+  params:
+    width: 30
+    height: 44
+    fill: $cherry
+- element: citrus_slice
+  at:
+  - -560
+  - -540
+  params:
+    r: 34
+- element: citrus_slice
+  at:
+  - 560
+  - -600
+  params:
+    r: 30
+- element: citrus_slice
+  at:
+  - -500
+  - -700
+  params:
+    r: 24
+- element: star
+  at:
+  - 500
+  - -740
+  params:
+    r: 20
+    fill: $lemon
+- element: star
+  at:
+  - -460
+  - -420
+  params:
+    r: 18
+    fill: $lemon
+- element: star
+  at:
+  - 600
+  - -460
+  params:
+    r: 16
+    fill: $lemon
+panels:
+- mode: color
+  at:
+  - 950
+  - 380
+  scale: 0.26
+- mode: line
+  at:
+  - 600.0
+  - 1470
+  scale: 0.85

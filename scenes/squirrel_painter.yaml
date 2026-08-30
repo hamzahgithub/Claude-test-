@@ -1,0 +1,305 @@
+canvas:
+  width: 1200
+  height: 1600
+  background: '#ffffff'
+defaults:
+  stroke: '#111111'
+  stroke_width: 7
+palette:
+  chestnut: '#D2762F'
+  wood: '#A9763F'
+  sky: '#6FB1DC'
+  meadow: '#67B072'
+  cream: '#FFF3E2'
+  cream2: '#FFF3E2'
+layers:
+- element: line
+  at:
+  - 0
+  - 0
+  params:
+    points:
+    - - -620
+      - 0
+    - - 620
+      - 0
+    stroke: '#111111'
+    stroke_width: 6
+- element: easel
+  at:
+  - 260
+  - 0
+  params:
+    height: 460
+    width: 290
+    wood_fill: $wood
+- element: group
+  at:
+  - -420
+  - 0
+  params:
+    children:
+    - element: vessel
+      at:
+      - -70
+      - 0
+      params:
+        width: 64
+        height: 70
+        taper: 0.9
+        fill: $sky
+    - element: vessel
+      at:
+      - 0
+      - 0
+      params:
+        width: 64
+        height: 70
+        taper: 0.9
+        fill: $chestnut
+    - element: vessel
+      at:
+      - 70
+      - 0
+      params:
+        width: 64
+        height: 70
+        taper: 0.9
+        fill: $meadow
+- element: group
+  at:
+  - -200
+  - 0
+  params:
+    children:
+    - element: ellipse
+      at:
+      - 0
+      - -20
+      params:
+        width: 90
+        height: 36
+        fill: $wood
+    - element: line
+      at:
+      - -20
+      - -30
+      params:
+        points:
+        - - 0
+          - 0
+        - - -30
+          - -90
+        stroke_width: 8
+- element: group
+  at:
+  - 420
+  - 0
+  params:
+    children:
+    - element: ellipse
+      at:
+      - 0
+      - -34
+      params:
+        width: 60
+        height: 64
+        fill: $chestnut
+    - element: polygon
+      at:
+      - 0
+      - -60
+      params:
+        points:
+        - - -32
+          - 0
+        - - 32
+          - 0
+        - - 24
+          - -22
+        - - -24
+          - -22
+        fill: $wood
+- element: creature
+  at:
+  - -40
+  - 0
+  params:
+    fur: $chestnut
+    light: $cream
+    body:
+      width: 340
+      height: 320
+    belly:
+      width: 170
+      height: 190
+      dy: 34
+      fill: $cream
+    head:
+      width: 340
+      height: 310
+      overlap: 0.88
+    ears:
+      shape: pointed
+      width: 90
+      height: 110
+      spread: 120
+      tilt: 18
+      inner_scale: 0.5
+    muzzle:
+      width: 195
+      height: 150
+      dy: 48
+    cheeks:
+      width: 70
+      height: 40
+      spread: 130
+      dy: 22
+    eyes:
+      r: 25
+      spread: 76
+      dy: -8
+    nose:
+      width: 26
+      height: 20
+      dy: 88
+    feet:
+      width: 110
+      height: 76
+      spread: 78
+      dy: -26
+    arms:
+      width: 100
+      height: 80
+      spread: 140
+      dy: -30
+    tail:
+      shape: bushy
+      length: 260
+      width: 190
+      angle: 118
+      side: left
+      dy: 140
+      curl: 0.55
+      tip_at: 0.55
+- element: curl
+  at:
+  - -100
+  - -170
+  params:
+    points:
+    - - 0
+      - 0
+    - - 40
+      - -60
+    - - 110
+      - -130
+    width_start: 16
+    width_end: 6
+    fill: $wood
+- element: ellipse
+  at:
+  - -90
+  - -240
+  params:
+    width: 34
+    height: 30
+    fill: $chestnut
+- element: group
+  at:
+  - 20
+  - -170
+  params:
+    children:
+    - element: blob
+      at:
+      - 0
+      - 0
+      params:
+        points:
+        - - -46
+          - 10
+        - - -30
+          - -34
+        - - 20
+          - -40
+        - - 46
+          - -6
+        - - 24
+          - 30
+        - - -16
+          - 32
+        tension: 0.9
+        fill: $cream
+    - element: circle
+      at:
+      - -18
+      - -8
+      params:
+        r: 8
+        fill: $sky
+    - element: circle
+      at:
+      - 6
+      - -18
+      params:
+        r: 8
+        fill: $chestnut
+    - element: circle
+      at:
+      - 26
+      - 4
+      params:
+        r: 8
+        fill: $meadow
+- element: splat
+  at:
+  - 560
+  - -520
+  params:
+    r: 28
+    fill: $sky
+    drips: 2
+- element: splat
+  at:
+  - -540
+  - -560
+  params:
+    r: 22
+    fill: $meadow
+    drips: 2
+- element: splat
+  at:
+  - 480
+  - -640
+  params:
+    r: 18
+    fill: $chestnut
+    drips: 1
+- element: splat
+  at:
+  - -460
+  - -680
+  params:
+    r: 24
+    fill: $chestnut
+    drips: 2
+- element: splat
+  at:
+  - 40
+  - -740
+  params:
+    r: 16
+    fill: $sky
+    drips: 1
+panels:
+- mode: color
+  at:
+  - 950
+  - 380
+  scale: 0.28
+- mode: line
+  at:
+  - 600.0
+  - 1490
+  scale: 0.95
