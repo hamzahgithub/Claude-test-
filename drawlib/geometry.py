@@ -88,6 +88,36 @@ def ribbon(spine: list[Point], width_at) -> str:
     return catmull_closed(left + right[::-1], tension=0.5)
 
 
+def catmull_open_points(points: list[Point], steps: int = 10) -> list[Point]:
+    """Densify a handful of control points into a smooth OPEN Catmull-Rom curve.
+
+    Unlike ``catmull_closed``, the curve does not wrap — end points are
+    clamped by duplicating them. Use this before handing a sparse, sharply
+    bending polyline (a curl, a trunk, a length of rope) to something like a
+    tapered-ribbon outline, which assumes its input spine is already dense
+    and gently curving; skipping this step on a sparse spine produces
+    self-crossing loops where the direction changes sharply between points.
+    """
+    if len(points) < 3:
+        return list(points)
+    padded = [points[0]] + list(points) + [points[-1]]
+    out = []
+    for i in range(1, len(padded) - 2):
+        p0, p1, p2, p3 = padded[i - 1], padded[i], padded[i + 1], padded[i + 2]
+        for s in range(steps):
+            t = s / steps
+            t2, t3 = t * t, t * t * t
+            x = 0.5 * (2 * p1[0] + (-p0[0] + p2[0]) * t
+                      + (2 * p0[0] - 5 * p1[0] + 4 * p2[0] - p3[0]) * t2
+                      + (-p0[0] + 3 * p1[0] - 3 * p2[0] + p3[0]) * t3)
+            y = 0.5 * (2 * p1[1] + (-p0[1] + p2[1]) * t
+                      + (2 * p0[1] - 5 * p1[1] + 4 * p2[1] - p3[1]) * t2
+                      + (-p0[1] + 3 * p1[1] - 3 * p2[1] + p3[1]) * t3)
+            out.append((x, y))
+    out.append(points[-1])
+    return out
+
+
 def rounded_rect_path(x: float, y: float, w: float, h: float, r: float) -> str:
     """Rectangle path with uniform corner radius, drawn from its top-left."""
     r = max(0.0, min(r, w / 2, h / 2))

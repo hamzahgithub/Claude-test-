@@ -1,0 +1,319 @@
+canvas:
+  width: 1200
+  height: 1600
+  background: '#ffffff'
+defaults:
+  stroke: '#111111'
+  stroke_width: 7
+palette:
+  grey: '#B9C6D6'
+  grey_dk: '#9FB0C4'
+  pink: '#F6A5B4'
+  green: '#5FB570'
+  yellow: '#F7C948'
+  terra: '#C86B3C'
+  white: '#FFFFFF'
+layers:
+- element: line
+  at:
+  - 0
+  - 0
+  params:
+    points:
+    - - -620
+      - 0
+    - - 620
+      - 0
+    stroke: '#111111'
+    stroke_width: 6
+- element: vessel
+  at:
+  - -560
+  - 0
+  params:
+    width: 110
+    height: 95
+    taper: 0.8
+    fill: $terra
+    handle:
+      side: right
+      size: 0.28
+    lid: null
+- element: group
+  at:
+  - -450
+  - 0
+  params:
+    children:
+    - element: path
+      at:
+      - 0
+      - 0
+      params:
+        d: M -6,0 L 6,0 L 4,-150 L -4,-150 Z
+        fill: $terra
+    - element: polygon
+      at:
+      - 0
+      - -150
+      params:
+        points:
+        - - -30
+          - 0
+        - - 30
+          - 0
+        - - 22
+          - -55
+        - - -22
+          - -55
+        fill: '#8A5A3B'
+- element: flower
+  at:
+  - -340
+  - 0
+  params:
+    height: 150
+    bloom_r: 48
+    petals: 6
+    stem_fill: $green
+    bloom_fill: $pink
+    center_fill: $yellow
+- element: vessel
+  at:
+  - -340
+  - 0
+  params:
+    width: 90
+    height: 40
+    taper: 0.7
+    fill: $terra
+- element: flower
+  at:
+  - 340
+  - 0
+  params:
+    height: 175
+    bloom_r: 54
+    petals: 6
+    stem_fill: $green
+    bloom_fill: $yellow
+    center_fill: $pink
+- element: vessel
+  at:
+  - 340
+  - 0
+  params:
+    width: 95
+    height: 42
+    taper: 0.7
+    fill: $terra
+- element: group
+  at:
+  - 190
+  - 0
+  params:
+    children:
+    - element: ellipse
+      at:
+      - 0
+      - -18
+      params:
+        width: 70
+        height: 32
+        fill: $grey_dk
+    - element: blob
+      at:
+      - 10
+      - -50
+      params:
+        points:
+        - - -22
+          - 10
+        - - -10
+          - -14
+        - - 16
+          - -10
+        - - 22
+          - 8
+        - - 4
+          - 16
+        tension: 0.9
+        fill: $terra
+    - element: circle
+      at:
+      - -14
+      - -66
+      params:
+        r: 15
+        fill: $terra
+    - element: line
+      at:
+      - -14
+      - -76
+      params:
+        points:
+        - - 0
+          - 0
+        - - -6
+          - -14
+        stroke_width: 4
+    - element: line
+      at:
+      - -8
+      - -76
+      params:
+        points:
+        - - 0
+          - 0
+        - - 4
+          - -14
+        stroke_width: 4
+- element: flower
+  at:
+  - 510
+  - 0
+  params:
+    height: 520
+    bloom_r: 95
+    petals: 7
+    stem_fill: $green
+    bloom_fill: $pink
+    center_fill: $yellow
+    face: true
+- element: droplet
+  at:
+  - 345
+  - -560
+  params:
+    r: 16
+    fill: '#BFE0F2'
+- element: droplet
+  at:
+  - 390
+  - -600
+  params:
+    r: 13
+    fill: '#BFE0F2'
+- element: droplet
+  at:
+  - 430
+  - -565
+  params:
+    r: 18
+    fill: '#BFE0F2'
+- element: creature
+  at:
+  - -40
+  - 0
+  params:
+    fur: $grey
+    light: $white
+    body:
+      width: 440
+      height: 380
+    belly:
+      width: 230
+      height: 250
+      dy: 40
+      fill: $white
+    head:
+      width: 480
+      height: 410
+      overlap: 0.86
+    ears:
+      shape: fan
+      width: 210
+      height: 300
+      spread: 200
+      tilt: 6
+      inner_scale: 0.62
+      fill: $grey_dk
+      inner_fill: $grey
+    cheeks:
+      width: 100
+      height: 54
+      spread: 190
+      dy: 30
+      fill: $pink
+    eyes:
+      r: 32
+      spread: 100
+      dy: -10
+    nose:
+      width: 30
+      height: 24
+      dy: 140
+    mouth: null
+    feet:
+      width: 160
+      height: 105
+      spread: 115
+      dy: -36
+      fill: $grey_dk
+    tail:
+      shape: thin
+      length: 170
+      width: 70
+      angle: 250
+      side: left
+      dy: 10
+      curl: 0.5
+      tip_at: 0.55
+- element: curl
+  at:
+  - -40
+  - 0
+  params:
+    points:
+    - - 5
+      - -195
+    - - 75
+      - -110
+    - - 175
+      - -90
+    width_start: 52
+    width_end: 20
+    fill: $grey
+- element: vessel
+  at:
+  - 300
+  - -20
+  params:
+    width: 150
+    height: 170
+    taper: 0.75
+    fill: $grey_dk
+    handle:
+      side: left
+      size: 0.28
+      reach: 1.1
+    spout:
+      side: right
+      angle: 35
+      length: 150
+  rotate: -18
+- element: butterfly
+  at:
+  - 610
+  - -430
+  params:
+    wingspan: 80
+    fill: $yellow
+- element: butterfly
+  at:
+  - -480
+  - -260
+  params:
+    wingspan: 64
+    fill: $pink
+panels:
+- mode: color
+  at:
+  - 950
+  - 380
+  scale: 0.27
+- mode: line
+  at:
+  - 600.0
+  - 1470
+  scale: 0.85

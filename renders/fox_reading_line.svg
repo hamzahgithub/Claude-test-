@@ -4,6 +4,7 @@
 <defs>
 </defs>
 <rect x="0" y="0" width="1400" height="1250" fill="#ffffff" stroke="none" />
+<g>
 <g transform="translate(170,520)">
 <path d="M 0.000,-46.000 L 11.356,-15.630 L 43.749,-14.215 L 18.374,5.970 L 27.038,37.215 L 0.000,19.320 L -27.038,37.215 L -18.374,5.970 L -43.749,-14.215 L -11.356,-15.630 Z" fill="#ffffff" stroke="#111111" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" />
 </g>
@@ -71,5 +72,6 @@
 <path d="M 66.200,-65.000 A 20.800,20.800 0 1 0 107.800,-65.000 A 20.800,20.800 0 1 0 66.200,-65.000 Z" fill="#ffffff" stroke="#111111" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" />
 <path d="M -49.500,-130.000 H 49.500 A 18,18 0 0 1 67.500,-112.000 V -18.000 A 18,18 0 0 1 49.500,0.000 H -49.500 A 18,18 0 0 1 -67.500,-18.000 V -112.000 A 18,18 0 0 1 -49.500,-130.000 Z" fill="#ffffff" stroke="#111111" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" />
 <path d="M 0.000,-100.100 L 8.665,-76.927 L 33.382,-75.846 L 14.020,-60.444 L 20.631,-36.604 L 0.000,-50.258 L -20.631,-36.604 L -14.020,-60.444 L -33.382,-75.846 L -8.665,-76.927 Z" fill="#ffffff" stroke="#111111" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" />
+</g>
 </g>
 </svg>

@@ -67,6 +67,19 @@ def _furry(spine, width_at, t0=0.0, t1=1.0, samples=9):
     return catmull_closed(left[:-1] + [tip] + right[::-1][1:], tension=0.9)
 
 
+def _tapered(spine, w0, w1):
+    """A straight-taper tube along ``spine`` — a simpler cousin of ``_furry``.
+
+    Width interpolates linearly from ``w0`` at the start to ``w1`` at the end,
+    with a rounded cap at the end (from ``_furry``). Used for straps, rails,
+    spouts, stems: anything read as a rigid or gently curved tube rather than
+    something furry.
+    """
+    def width_at(t):
+        return w0 + (w1 - w0) * t
+    return _furry(spine, width_at, samples=min(len(spine), 9))
+
+
 # ------------------------------------------------------------ primitives
 
 @element("circle")
@@ -463,16 +476,32 @@ def creature(ctx, body=None, belly=None, head=None, ears=None, eyes=None,
         ew, eh = ears.get("width", 150), ears.get("height", 220)
         spread = ears.get("spread", head_w * 0.3)
         tilt = ears.get("tilt", 16)
-        base_y = head_cy - head_h * 0.3
+        shape = ears.get("shape", "pointed")
+        base_y = head_cy - head_h * (0.02 if shape == "fan" else 0.3)
         for sign in (-1, 1):
             bx = sign * spread
             lean = math.radians(sign * tilt)
             tip = (bx + math.sin(lean) * eh, base_y - math.cos(lean) * eh)
-            if ears.get("shape", "pointed") == "round":
+            if shape == "round":
                 _add(g, ctx, _ellipse_path(bx, base_y - eh * 0.35, ew / 2, eh / 2),
                      params, ears.get("fill", fur))
                 _add(g, ctx, _ellipse_path(bx, base_y - eh * 0.35, ew * 0.28, eh * 0.3),
                      params, ears.get("inner_fill", light))
+            elif shape == "fan":
+                # A big flat, low-slung ear for elephants and similar — attached
+                # at mid-head height rather than perched on top.
+                out = sign * ew
+                _add(g, ctx, catmull_closed([
+                    (bx, base_y - eh * 0.25), (bx + out * 0.35, base_y - eh * 0.9),
+                    (bx + out * 0.95, base_y - eh * 0.55), (bx + out * 1.05, base_y + eh * 0.15),
+                    (bx + out * 0.55, base_y + eh * 0.75), (bx, base_y + eh * 0.55)],
+                    tension=0.85), params, ears.get("fill", fur))
+                inner = ears.get("inner_scale", 0.6)
+                _add(g, ctx, catmull_closed([
+                    (bx + out * 0.12, base_y - eh * 0.1), (bx + out * 0.4, base_y - eh * 0.55),
+                    (bx + out * 0.78, base_y - eh * 0.32), (bx + out * 0.8, base_y + eh * 0.1),
+                    (bx + out * 0.45, base_y + eh * 0.42)], tension=0.85),
+                    params, ears.get("inner_fill", light))
             else:
                 _add(g, ctx, catmull_closed([(bx - ew / 2, base_y), tip,
                                              (bx + ew / 2, base_y - eh * 0.12)],

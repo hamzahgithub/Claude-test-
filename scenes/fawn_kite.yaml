@@ -1,0 +1,311 @@
+canvas:
+  width: 1200
+  height: 1600
+  background: '#ffffff'
+defaults:
+  stroke: '#111111'
+  stroke_width: 7
+palette:
+  tan: '#CE9A63'
+  autumn: '#C7503C'
+  pumpkin: '#E2892F'
+  moss: '#6E8B4E'
+  sky: '#CFE6F2'
+  cream: '#FFF3E2'
+layers:
+- element: line
+  at:
+  - 0
+  - 0
+  params:
+    points:
+    - - -620
+      - 0
+    - - 620
+      - 0
+    stroke: '#111111'
+    stroke_width: 6
+- element: blob
+  at:
+  - -380
+  - 0
+  params:
+    points:
+    - - -140
+      - 6
+    - - -90
+      - -36
+    - - 0
+      - -20
+    - - 70
+      - -40
+    - - 140
+      - 0
+    - - 60
+      - 20
+    - - -40
+      - 30
+    tension: 0.85
+    fill: $autumn
+- element: stump
+  at:
+  - -460
+  - 0
+  params:
+    width: 130
+    height: 90
+    fill: '#8A5A3B'
+    ring_fill: $tan
+- element: basket
+  at:
+  - 420
+  - 0
+  params:
+    width: 210
+    height: 140
+    fill: '#B0793F'
+- element: circle
+  at:
+  - 370
+  - -170
+  params:
+    r: 26
+    fill: $tan
+- element: circle
+  at:
+  - 420
+  - -190
+  params:
+    r: 24
+    fill: $tan
+- element: circle
+  at:
+  - 465
+  - -165
+  params:
+    r: 26
+    fill: $tan
+- element: curl
+  at:
+  - 180
+  - 0
+  params:
+    points:
+    - - 0
+      - 0
+    - - 10
+      - -70
+    - - -6
+      - -150
+    width_start: 16
+    width_end: 6
+    fill: $moss
+- element: curl
+  at:
+  - 210
+  - 0
+  params:
+    points:
+    - - 0
+      - 0
+    - - -8
+      - -90
+    - - 12
+      - -180
+    width_start: 14
+    width_end: 5
+    fill: $moss
+- element: creature
+  at:
+  - -40
+  - 0
+  params:
+    fur: $tan
+    light: $cream
+    body:
+      width: 340
+      height: 310
+    belly:
+      width: 170
+      height: 180
+      dy: 28
+      fill: $cream
+    head:
+      width: 310
+      height: 290
+      overlap: 0.88
+    ears:
+      shape: pointed
+      width: 95
+      height: 140
+      spread: 115
+      tilt: 26
+      inner_scale: 0.5
+    muzzle:
+      width: 175
+      height: 140
+      dy: 44
+    cheeks:
+      width: 58
+      height: 32
+      spread: 112
+      dy: 18
+    eyes:
+      r: 24
+      spread: 68
+      dy: -4
+    nose:
+      width: 24
+      height: 18
+      dy: 80
+    feet:
+      width: 100
+      height: 64
+      spread: 76
+      dy: -18
+    arms:
+      width: 90
+      height: 72
+      spread: 132
+      dy: 0
+    tail:
+      shape: round
+      length: 60
+      width: 60
+      angle: 250
+      side: left
+      dy: 20
+      curl: 0.3
+      tip_at: 0.5
+- element: circle
+  at:
+  - -140
+  - -560
+  params:
+    r: 10
+    fill: '#B9855A'
+- element: circle
+  at:
+  - -100
+  - -600
+  params:
+    r: 8
+    fill: '#B9855A'
+- element: circle
+  at:
+  - -170
+  - -610
+  params:
+    r: 7
+    fill: '#B9855A'
+- element: kite
+  at:
+  - 280
+  - -820
+  params:
+    width: 160
+    height: 200
+    fill: $autumn
+    tail_fill: $pumpkin
+    bows: 3
+    string_to:
+    - -140
+    - 700
+    stroke_width: 5
+- element: blob
+  at:
+  - -560
+  - -520
+  params:
+    points:
+    - - -16
+      - 6
+    - - -4
+      - -14
+    - - 14
+      - -6
+    - - 6
+      - 12
+    tension: 0.8
+    fill: $pumpkin
+- element: blob
+  at:
+  - 520
+  - -600
+  params:
+    points:
+    - - -14
+      - 5
+    - - -3
+      - -12
+    - - 12
+      - -5
+    - - 5
+      - 10
+    tension: 0.8
+    fill: $autumn
+- element: blob
+  at:
+  - -480
+  - -680
+  params:
+    points:
+    - - -15
+      - 5
+    - - -4
+      - -13
+    - - 13
+      - -5
+    - - 5
+      - 11
+    tension: 0.8
+    fill: $moss
+- element: blob
+  at:
+  - 600
+  - -440
+  params:
+    points:
+    - - -14
+      - 5
+    - - -3
+      - -12
+    - - 12
+      - -5
+    - - 5
+      - 10
+    tension: 0.8
+    fill: $pumpkin
+- element: line
+  at:
+  - -560
+  - -300
+  params:
+    points:
+    - - 0
+      - 0
+    - - 40
+      - -20
+    - - 80
+      - 4
+    - - 120
+      - -18
+    - - 160
+      - 2
+    close: false
+    stroke: '#888888'
+    stroke_width: 4
+    dash:
+    - 14
+    - 10
+panels:
+- mode: color
+  at:
+  - 950
+  - 340
+  scale: 0.24
+- mode: line
+  at:
+  - 600.0
+  - 1500
+  scale: 0.85

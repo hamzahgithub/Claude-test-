@@ -1,0 +1,228 @@
+canvas:
+  width: 1200
+  height: 1600
+  background: '#ffffff'
+  border:
+    margin: 34
+    stroke_width: 6
+    color: '#111111'
+defaults:
+  stroke: '#111111'
+  stroke_width: 7
+palette:
+  ginger: '#E08A3C'
+  library: '#3F7D5A'
+  red: '#B84A3A'
+  paper: '#F6E7CB'
+  gold: '#F2C75C'
+  cream: '#FFF3E2'
+layers:
+- element: line
+  at:
+  - 0
+  - 0
+  params:
+    points:
+    - - -620
+      - 0
+    - - 620
+      - 0
+    stroke: '#111111'
+    stroke_width: 6
+- element: ladder
+  at:
+  - 140
+  - 0
+  params:
+    width: 190
+    height: 520
+    rungs: 5
+    fill: $red
+- element: books
+  at:
+  - -420
+  - 0
+  params:
+    width: 200
+    thickness: 32
+    count: 3
+    lean: 10
+    fills:
+    - $red
+    - $library
+    - $ginger
+- element: books
+  at:
+  - -220
+  - 0
+  params:
+    width: 170
+    thickness: 30
+    count: 2
+    lean: 8
+    fills:
+    - $library
+    - $red
+- element: book
+  at:
+  - 0
+  - 0
+  params:
+    width: 280
+    height: 110
+    lift: 60
+    cover_fill: $library
+    picture_fill: $gold
+- element: lamp
+  at:
+  - 430
+  - 0
+  params:
+    height: 280
+    shade_width: 140
+    shade_height: 90
+    pole_width: 16
+    base_width: 70
+    shade_fill: $gold
+    pole_fill: '#6B4224'
+    cord: false
+- element: plant
+  at:
+  - 560
+  - 0
+  params:
+    pot_width: 90
+    pot_height: 80
+    leaf_length: 140
+    leaf_width: 54
+    spread: 40
+    pot_fill: '#8A5A3B'
+    leaf_fill: $library
+- element: creature
+  at:
+  - 140
+  - -178
+  params:
+    fur: $ginger
+    light: $cream
+    body:
+      width: 300
+      height: 260
+    belly:
+      width: 150
+      height: 150
+      dy: 26
+      fill: $cream
+    head:
+      width: 290
+      height: 260
+      overlap: 0.88
+    ears:
+      shape: pointed
+      width: 90
+      height: 110
+      spread: 110
+      tilt: 14
+      inner_scale: 0.5
+    muzzle:
+      width: 165
+      height: 130
+      dy: 42
+    cheeks:
+      width: 56
+      height: 32
+      spread: 110
+      dy: 18
+    eyes:
+      r: 22
+      spread: 64
+      dy: -6
+    nose:
+      width: 22
+      height: 17
+      dy: 76
+    feet:
+      width: 90
+      height: 56
+      spread: 64
+      dy: -16
+    arms:
+      width: 86
+      height: 68
+      spread: 118
+      dy: -10
+    tail:
+      shape: thin
+      length: 220
+      width: 80
+      angle: 250
+      side: left
+      dy: 0
+      curl: 0.35
+      tip_at: 0.6
+- element: book
+  at:
+  - 140
+  - -178
+  params:
+    at:
+    - 140
+    - -240
+    width: 170
+    height: 110
+    lift: 44
+    cover_fill: $red
+    picture_fill: null
+- element: heart
+  at:
+  - -500
+  - -680
+  params:
+    size: 42
+    fill: $red
+- element: heart
+  at:
+  - -560
+  - -540
+  params:
+    size: 32
+    fill: $red
+- element: heart
+  at:
+  - 560
+  - -420
+  params:
+    size: 36
+    fill: $red
+- element: star
+  at:
+  - 630
+  - -680
+  params:
+    r: 20
+    fill: $gold
+- element: star
+  at:
+  - -440
+  - -420
+  params:
+    r: 18
+    fill: $gold
+- element: star
+  at:
+  - 700
+  - -540
+  params:
+    r: 16
+    fill: $gold
+panels:
+- mode: color
+  at:
+  - 600.0
+  - 390
+  scale: 0.27
+- mode: line
+  at:
+  - 600.0
+  - 1480
+  scale: 0.9

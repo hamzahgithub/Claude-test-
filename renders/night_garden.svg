@@ -9,6 +9,7 @@
 </linearGradient>
 </defs>
 <rect x="0" y="0" width="1400" height="900" fill="url(#d0)" stroke="none" />
+<g>
 <g transform="translate(0,0)">
 <g transform="translate(474.506,123.357) scale(0.7540)">
 <g transform="translate(0,0)">
@@ -193,5 +194,6 @@
 <path d="M 65.000,-496.000 A 27.000,30.240 0 1 0 119.000,-496.000 A 27.000,30.240 0 1 0 65.000,-496.000 Z" fill="#000000" stroke="none" stroke-width="0" />
 <path d="M -21.000,-443.000 A 21.000,16.000 0 1 0 21.000,-443.000 A 21.000,16.000 0 1 0 -21.000,-443.000 Z" fill="#000000" stroke="none" stroke-width="0" />
 <path d="M -44.00,-427.00 Q -22.00,-385.20 0,-421.72 Q 22.00,-385.20 44.00,-427.00" fill="none" stroke="#12203A" stroke-width="4.800000000000001" stroke-linejoin="round" stroke-linecap="round" />
+</g>
 </g>
 </svg>

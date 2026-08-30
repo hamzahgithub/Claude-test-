@@ -1,0 +1,305 @@
+canvas:
+  width: 1200
+  height: 1600
+  background: '#ffffff'
+  border:
+    margin: 34
+    stroke_width: 6
+    color: '#111111'
+defaults:
+  stroke: '#111111'
+  stroke_width: 7
+palette:
+  red: '#D8524A'
+  cream: '#FFF4E4'
+  sky: '#8CC7EA'
+  basket: '#B0793F'
+  green: '#62A96F'
+layers:
+- element: cloud
+  at:
+  - -380
+  - 0
+  params:
+    width: 420
+    height: 100
+    puffs: 4
+    fill: '#ffffff'
+- element: cloud
+  at:
+  - 80
+  - 40
+  params:
+    width: 520
+    height: 120
+    puffs: 5
+    fill: '#ffffff'
+- element: cloud
+  at:
+  - 520
+  - -10
+  params:
+    width: 340
+    height: 90
+    puffs: 3
+    fill: '#ffffff'
+- element: balloon
+  at:
+  - 0
+  - 0
+  params:
+    envelope_width: 560
+    envelope_height: 600
+    basket_width: 230
+    basket_height: 150
+    gap: 100
+    fill: $red
+    stripe_fill: $cream
+    panels: 8
+    basket_fill: $basket
+- element: group
+  at:
+  - -150
+  - -150
+  params:
+    children:
+    - element: line
+      at:
+      - 0
+      - 0
+      params:
+        points:
+        - - 0
+          - 0
+        - - 0
+          - 60
+        stroke_width: 5
+    - element: rect
+      at:
+      - 0
+      - 90
+      params:
+        width: 50
+        height: 64
+        radius: 8
+        fill: $cream
+    - element: circle
+      at:
+      - 0
+      - 88
+      params:
+        r: 18
+        fill: '#F5C542'
+- element: rect
+  at:
+  - 110
+  - -70
+  params:
+    width: 70
+    height: 50
+    radius: 14
+    fill: '#6B4224'
+- element: rect
+  at:
+  - 170
+  - -60
+  params:
+    width: 70
+    height: 50
+    radius: 14
+    fill: '#6B4224'
+- element: rect
+  at:
+  - -40
+  - -220
+  params:
+    width: 180
+    height: 48
+    radius: 20
+    fill: '#7A7A7A'
+    rotate: -18
+- element: line
+  at:
+  - -30
+  - -220
+  params:
+    points:
+    - - 0
+      - 0
+    - - 10
+      - -60
+    - - -4
+      - -74
+    close: false
+    stroke_width: 6
+- element: bird
+  at:
+  - 420
+  - -560
+  params:
+    size: 90
+    fill: $sky
+- element: creature
+  at:
+  - -50
+  - -150
+  params:
+    fur: '#F4E3C1'
+    light: $cream
+    body:
+      width: 300
+      height: 260
+    belly:
+      width: 150
+      height: 150
+      dy: 26
+      fill: $cream
+    head:
+      width: 280
+      height: 260
+      overlap: 0.85
+    ears:
+      shape: pointed
+      width: 80
+      height: 300
+      spread: 70
+      tilt: 10
+      inner_scale: 0.5
+    muzzle:
+      width: 160
+      height: 125
+      dy: 40
+    cheeks:
+      width: 54
+      height: 30
+      spread: 104
+      dy: 16
+    eyes:
+      r: 22
+      spread: 62
+      dy: -4
+    nose:
+      width: 20
+      height: 16
+      dy: 74
+    feet: null
+    arms:
+      width: 86
+      height: 68
+      spread: 118
+      dy: 10
+    tail:
+      shape: round
+      length: 40
+      width: 70
+      angle: 250
+      side: left
+      dy: 20
+      curl: 0.2
+      tip_at: 0.5
+  scale: 0.58
+- element: group
+  at:
+  - 30
+  - -190
+  params:
+    children:
+    - element: rect
+      at:
+      - 0
+      - 0
+      params:
+        width: 140
+        height: 95
+        radius: 8
+        fill: $cream
+    - element: line
+      at:
+      - -48
+      - -14
+      params:
+        points:
+        - - 0
+          - 0
+        - - 16
+          - 12
+        - - 32
+          - -4
+        - - 48
+          - 14
+        close: false
+        stroke_width: 4
+        dash:
+        - 7
+        - 5
+    - element: star
+      at:
+      - 40
+      - 22
+      params:
+        r: 11
+        fill: $red
+- element: star
+  at:
+  - -540
+  - -560
+  params:
+    r: 30
+    fill: '#F5C542'
+- element: star
+  at:
+  - -460
+  - -680
+  params:
+    r: 24
+    fill: '#F5C542'
+- element: star
+  at:
+  - 540
+  - -420
+  params:
+    r: 26
+    fill: '#F5C542'
+- element: star
+  at:
+  - 480
+  - -680
+  params:
+    r: 20
+    fill: '#F5C542'
+- element: star
+  at:
+  - -560
+  - -380
+  params:
+    r: 18
+    fill: '#F5C542'
+- element: cloud
+  at:
+  - -460
+  - -740
+  params:
+    width: 180
+    height: 48
+    puffs: 3
+    fill: '#ffffff'
+- element: cloud
+  at:
+  - 500
+  - -760
+  params:
+    width: 150
+    height: 40
+    puffs: 3
+    fill: '#ffffff'
+panels:
+- mode: color
+  at:
+  - 600.0
+  - 350
+  scale: 0.24
+- mode: line
+  at:
+  - 600.0
+  - 1460
+  scale: 0.72

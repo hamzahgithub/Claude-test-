@@ -10,7 +10,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from drawlib.scene import SceneError, load, modes_for, render
+from drawlib.scene import SceneError, load, modes_for, render, render_panels
 
 ROOT = Path(__file__).parent
 
@@ -20,9 +20,10 @@ def render_scene(path: Path, out_dir: Path, pixel_scale: float) -> list[Path]:
     modes = modes_for(spec)
     written = []
     for mode in modes:
-        # A single-mode scene keeps its plain name; 'both' gets a suffix per mode.
+        # A single-mode scene keeps its plain name; 'both' gets a suffix per
+        # mode; a 'panels' scene is one combined file under the plain name.
         stem = path.stem if len(modes) == 1 else f"{path.stem}_{mode}"
-        drawing = render(spec, mode)
+        drawing = render_panels(spec) if mode == "panels" else render(spec, mode)
         drawing.set_pixel_scale(pixel_scale)
         svg, png = out_dir / f"{stem}.svg", out_dir / f"{stem}.png"
         drawing.save_svg(str(svg))

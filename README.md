@@ -13,6 +13,20 @@ GitHub Actions ويحفظ الناتج في المستودع.
 المشهدان أعلاه من **نفس الكود**: عنصر `creature` واحد يرسم الثعلب والقطة، وتتغيّر
 المعاملات فقط.
 
+## معرض: عشر صفحات تلوين بنمط اللوحتين
+
+نفس المحرّك، بلا أي تعديل في الكود، يرسم عشرة كائنات مختلفة — فيل، بطريق، سنجاب،
+قضاعة، قنفذ، هريرة، جرو، باندا، غزال، أرنب — كل واحد بنسخة ملوّنة صغيرة أعلى ونسخة
+خطوط كبيرة للتلوين أسفل، في صورة واحدة (`panels` في ملف المشهد). التفاصيل والوصف
+العربي الأصلي لكل مشهد في `descriptions/`.
+
+| | | |
+|---|---|---|
+| ![](renders/elephant_garden.png) فيل وحديقة | ![](renders/penguin_cocoa.png) بطريق وكاكاو | ![](renders/squirrel_painter.png) سنجاب رسّام |
+| ![](renders/otter_bath.png) قضاعة وحوض استحمام | ![](renders/hedgehog_camp.png) قنفذ مخيِّم | ![](renders/kitten_library.png) هريرة ومكتبة |
+| ![](renders/puppy_lemonade.png) جرو وعصير ليمون | ![](renders/panda_dumplings.png) باندا وزلابية | ![](renders/fawn_kite.png) غزال وطائرة ورقية |
+| ![](renders/bunny_balloon.png) أرنب ومنطاد | | |
+
 ## التشغيل محلياً
 
 ```bash
@@ -26,9 +40,10 @@ python render.py scenes/fox_reading.yaml
 ## البنية
 
 ```
-drawlib/geometry.py   دوال هندسية: منحنيات ناعمة، نجوم، بيزييه
-drawlib/elements.py   مفردات الرسم: 21 عنصراً معلَّماً
-drawlib/scene.py      قراءة YAML، الألوان، التحويلات، وضع الخطوط
+drawlib/geometry.py   دوال هندسية: منحنيات ناعمة، نجوم، بيزييه، أنابيب متدرّجة السُّمك
+drawlib/elements.py   الأشكال الأولية وعنصر creature (كائن حيّ معلَّم بالكامل)
+drawlib/props.py      عناصر إضافية: أثاث ونباتات وأدوات يومية (48 عنصراً إجمالاً)
+drawlib/scene.py      قراءة YAML، الألوان، التحويلات، وضع الخطوط، تركيب اللوحتين
 render.py             سطر الأوامر
 scenes/*.yaml         ملفات المشاهد
 descriptions/*.md     الوصف العربي الأصلي لكل مشهد

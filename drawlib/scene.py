@@ -15,6 +15,7 @@ import drawsvg as draw
 import yaml
 
 from . import elements as _elements  # noqa: F401  (registers every element)
+from . import props as _props        # noqa: F401  (registers every element)
 from .registry import ALIASES, REGISTRY
 
 MODES = ("color", "line", "both")
@@ -74,7 +75,7 @@ class Context:
         resolved = self.color(params.get("fill", fill))
         if self.mode == "line" and resolved != "none":
             resolved = "#ffffff"
-        return {
+        style = {
             "fill": resolved,
             "stroke": self.color(params.get("stroke", self.defaults["stroke"])),
             "stroke_width": params.get("stroke_width",
@@ -82,6 +83,10 @@ class Context:
             "stroke_linejoin": self.defaults["stroke_linejoin"],
             "stroke_linecap": self.defaults["stroke_linecap"],
         }
+        dash = params.get("dash")
+        if dash:
+            style["stroke_dasharray"] = ",".join(str(d) for d in dash)
+        return style
 
     # ---- layers -----------------------------------------------------------
     def build(self, layer: dict) -> draw.Group:
@@ -139,31 +144,86 @@ def load(path: str | Path) -> dict:
         raise SceneError(f"{path}: mode must be one of {', '.join(MODES)}, got '{mode}'")
     if not isinstance(spec.get("layers"), list):
         raise SceneError(f"{path}: 'layers' must be a list of layers")
+    if "panels" in spec and not isinstance(spec["panels"], list):
+        raise SceneError(f"{path}: 'panels' must be a list of panel specs")
     return spec
 
 
+def _draw_layers(ctx: Context, layers: list[dict]) -> draw.Group:
+    group = draw.Group()
+    for index, layer in enumerate(layers, start=1):
+        try:
+            group.append(ctx.build(layer))
+        except SceneError as exc:
+            raise SceneError(f"layer {index}: {exc}") from None
+    return group
+
+
+def _background_and_border(spec: dict, ctx: Context, width, height) -> list:
+    canvas = spec.get("canvas") or {}
+    items = []
+    background = canvas.get("background", "#ffffff")
+    if background and background != "none":
+        items.append(draw.Rectangle(0, 0, width, height,
+                                    fill=ctx.color(background), stroke="none"))
+    border = canvas.get("border")
+    if border:
+        margin = border.get("margin", 24)
+        items.append(draw.Rectangle(
+            margin, margin, width - 2 * margin, height - 2 * margin,
+            fill="none", stroke=border.get("color", "#111111"),
+            stroke_width=border.get("stroke_width", 4)))
+    return items
+
+
 def render(spec: dict, mode: str) -> draw.Drawing:
-    """Render one scene in one mode."""
+    """Render one scene in one mode (mode is 'color' or 'line')."""
     canvas = spec.get("canvas") or {}
     width = canvas.get("width", 1200)
     height = canvas.get("height", 1200)
     ctx = Context(mode, spec.get("defaults"), spec.get("palette"))
 
     drawing = draw.Drawing(width, height, origin=(0, 0))
-    background = canvas.get("background", "#ffffff")
-    if background and background != "none":
-        fill = ctx.color(background)
-        drawing.append(draw.Rectangle(0, 0, width, height, fill=fill, stroke="none"))
+    for item in _background_and_border(spec, ctx, width, height):
+        drawing.append(item)
+    drawing.append(_draw_layers(ctx, spec["layers"]))
+    return drawing
 
-    for index, layer in enumerate(spec["layers"], start=1):
-        try:
-            drawing.append(ctx.build(layer))
-        except SceneError as exc:
-            raise SceneError(f"layer {index}: {exc}") from None
+
+def render_panels(spec: dict) -> draw.Drawing:
+    """Render a scene's ``layers`` twice into one image, per ``panels`` entry.
+
+    Each panel gets its own render mode (typically a small coloured panel and
+    a large line-art panel), positioned and scaled independently, so a single
+    scene definition produces the two-panel coloring-page layout in one file.
+    """
+    canvas = spec.get("canvas") or {}
+    width = canvas.get("width", 1200)
+    height = canvas.get("height", 1600)
+    defaults, palette = spec.get("defaults"), spec.get("palette")
+
+    drawing = draw.Drawing(width, height, origin=(0, 0))
+    bg_ctx = Context("color", defaults, palette)
+    for item in _background_and_border(spec, bg_ctx, width, height):
+        drawing.append(item)
+
+    for index, panel in enumerate(spec["panels"], start=1):
+        panel_mode = panel.get("mode", "color")
+        if panel_mode not in ("color", "line"):
+            raise SceneError(f"panel {index}: mode must be 'color' or 'line', "
+                             f"got '{panel_mode}'")
+        ctx = Context(panel_mode, defaults, palette)
+        group = _draw_layers(ctx, spec["layers"])
+        x, y = panel.get("at", (width / 2, height / 2))
+        scale = panel.get("scale", 1)
+        group.args["transform"] = f"translate({x},{y}) scale({scale})"
+        drawing.append(group)
     return drawing
 
 
 def modes_for(spec: dict) -> list[str]:
-    """The render modes a scene asks for."""
+    """The render modes a scene asks for. 'panels' scenes render as one file."""
+    if "panels" in spec:
+        return ["panels"]
     mode = spec.get("mode", "color")
     return ["color", "line"] if mode == "both" else [mode]
